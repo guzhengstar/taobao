@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using System.Xml.Serialization;
-using NewLife.Log;
-using NewLife.Web;
 using XCode;
 using XCode.Configuration;
 
@@ -52,6 +50,8 @@ namespace Store
         //    entity.Type = "abc";
         //    entity.Color = "abc";
         //    entity.RealPrice = 0;
+        //    entity.Amount = 0;
+        //    entity.Remain = 0;
         //    entity.CreateTime = DateTime.Now;
         //    entity.Remark = "abc";
         //    entity.Insert();

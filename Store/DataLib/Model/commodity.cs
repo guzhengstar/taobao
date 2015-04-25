@@ -78,12 +78,36 @@ namespace Store
             set { if (OnPropertyChanging(__.RealPrice, value)) { _RealPrice = value; OnPropertyChanged(__.RealPrice); } }
         }
 
+        private Int16 _Amount;
+        /// <summary>进货数量</summary>
+        [DisplayName("进货数量")]
+        [Description("进货数量")]
+        [DataObjectField(false, false, true, 5)]
+        [BindColumn(6, "Amount", "进货数量", null, "smallint(6)", 5, 0, false)]
+        public virtual Int16 Amount
+        {
+            get { return _Amount; }
+            set { if (OnPropertyChanging(__.Amount, value)) { _Amount = value; OnPropertyChanged(__.Amount); } }
+        }
+
+        private Int16 _Remain;
+        /// <summary>剩余数量</summary>
+        [DisplayName("剩余数量")]
+        [Description("剩余数量")]
+        [DataObjectField(false, false, true, 5)]
+        [BindColumn(7, "Remain", "剩余数量", null, "smallint(6)", 5, 0, false)]
+        public virtual Int16 Remain
+        {
+            get { return _Remain; }
+            set { if (OnPropertyChanging(__.Remain, value)) { _Remain = value; OnPropertyChanged(__.Remain); } }
+        }
+
         private DateTime _CreateTime;
         /// <summary>创建时间</summary>
         [DisplayName("创建时间")]
         [Description("创建时间")]
         [DataObjectField(false, false, true, 0)]
-        [BindColumn(6, "CreateTime", "创建时间", null, "datetime", 0, 0, false)]
+        [BindColumn(8, "CreateTime", "创建时间", null, "datetime", 0, 0, false)]
         public virtual DateTime CreateTime
         {
             get { return _CreateTime; }
@@ -95,7 +119,7 @@ namespace Store
         [DisplayName("备注")]
         [Description("备注")]
         [DataObjectField(false, false, true, 20)]
-        [BindColumn(7, "Remark", "备注", "", "varchar(20)", 0, 0, false)]
+        [BindColumn(9, "Remark", "备注", "", "varchar(20)", 0, 0, false)]
         public virtual String Remark
         {
             get { return _Remark; }
@@ -122,6 +146,8 @@ namespace Store
                     case __.Type : return _Type;
                     case __.Color : return _Color;
                     case __.RealPrice : return _RealPrice;
+                    case __.Amount : return _Amount;
+                    case __.Remain : return _Remain;
                     case __.CreateTime : return _CreateTime;
                     case __.Remark : return _Remark;
                     default: return base[name];
@@ -136,6 +162,8 @@ namespace Store
                     case __.Type : _Type = Convert.ToString(value); break;
                     case __.Color : _Color = Convert.ToString(value); break;
                     case __.RealPrice : _RealPrice = Convert.ToDecimal(value); break;
+                    case __.Amount : _Amount = Convert.ToInt16(value); break;
+                    case __.Remain : _Remain = Convert.ToInt16(value); break;
                     case __.CreateTime : _CreateTime = Convert.ToDateTime(value); break;
                     case __.Remark : _Remark = Convert.ToString(value); break;
                     default: base[name] = value; break;
@@ -163,6 +191,12 @@ namespace Store
             ///<summary>进价</summary>
             public static readonly Field RealPrice = FindByName(__.RealPrice);
 
+            ///<summary>进货数量</summary>
+            public static readonly Field Amount = FindByName(__.Amount);
+
+            ///<summary>剩余数量</summary>
+            public static readonly Field Remain = FindByName(__.Remain);
+
             ///<summary>创建时间</summary>
             public static readonly Field CreateTime = FindByName(__.CreateTime);
 
@@ -189,6 +223,12 @@ namespace Store
 
             ///<summary>进价</summary>
             public const String RealPrice = "RealPrice";
+
+            ///<summary>进货数量</summary>
+            public const String Amount = "Amount";
+
+            ///<summary>剩余数量</summary>
+            public const String Remain = "Remain";
 
             ///<summary>创建时间</summary>
             public const String CreateTime = "CreateTime";
@@ -218,6 +258,12 @@ namespace Store
 
         /// <summary>进价</summary>
         Decimal RealPrice { get; set; }
+
+        /// <summary>进货数量</summary>
+        Int16 Amount { get; set; }
+
+        /// <summary>剩余数量</summary>
+        Int16 Remain { get; set; }
 
         /// <summary>创建时间</summary>
         DateTime CreateTime { get; set; }
