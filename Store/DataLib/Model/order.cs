@@ -152,12 +152,84 @@ namespace Store
             set { if (OnPropertyChanging(__.RefreshTime, value)) { _RefreshTime = value; OnPropertyChanged(__.RefreshTime); } }
         }
 
+        private SByte _IsCashGift;
+        /// <summary>是否礼品折现</summary>
+        [DisplayName("是否礼品折现")]
+        [Description("是否礼品折现")]
+        [DataObjectField(false, false, true, 3)]
+        [BindColumn(12, "IsCashGift", "是否礼品折现", null, "tinyint(4)", 3, 0, false)]
+        public virtual SByte IsCashGift
+        {
+            get { return _IsCashGift; }
+            set { if (OnPropertyChanging(__.IsCashGift, value)) { _IsCashGift = value; OnPropertyChanged(__.IsCashGift); } }
+        }
+
+        private Decimal _CashGift;
+        /// <summary></summary>
+        [DisplayName("CashGift")]
+        [Description("")]
+        [DataObjectField(false, false, true, 6)]
+        [BindColumn(13, "CashGift", "", null, "decimal(6,2)", 6, 2, false)]
+        public virtual Decimal CashGift
+        {
+            get { return _CashGift; }
+            set { if (OnPropertyChanging(__.CashGift, value)) { _CashGift = value; OnPropertyChanged(__.CashGift); } }
+        }
+
+        private SByte _IsCashback1;
+        /// <summary>是否好评返现</summary>
+        [DisplayName("是否好评返现")]
+        [Description("是否好评返现")]
+        [DataObjectField(false, false, true, 3)]
+        [BindColumn(14, "IsCashback1", "是否好评返现", null, "tinyint(4)", 3, 0, false)]
+        public virtual SByte IsCashback1
+        {
+            get { return _IsCashback1; }
+            set { if (OnPropertyChanging(__.IsCashback1, value)) { _IsCashback1 = value; OnPropertyChanged(__.IsCashback1); } }
+        }
+
+        private Decimal _Cashback1;
+        /// <summary>好评返现</summary>
+        [DisplayName("好评返现")]
+        [Description("好评返现")]
+        [DataObjectField(false, false, true, 6)]
+        [BindColumn(15, "Cashback1", "好评返现", null, "decimal(6,2)", 6, 2, false)]
+        public virtual Decimal Cashback1
+        {
+            get { return _Cashback1; }
+            set { if (OnPropertyChanging(__.Cashback1, value)) { _Cashback1 = value; OnPropertyChanged(__.Cashback1); } }
+        }
+
+        private SByte _IsCashback2;
+        /// <summary>是否追加返现</summary>
+        [DisplayName("是否追加返现")]
+        [Description("是否追加返现")]
+        [DataObjectField(false, false, true, 3)]
+        [BindColumn(16, "IsCashback2", "是否追加返现", null, "tinyint(4)", 3, 0, false)]
+        public virtual SByte IsCashback2
+        {
+            get { return _IsCashback2; }
+            set { if (OnPropertyChanging(__.IsCashback2, value)) { _IsCashback2 = value; OnPropertyChanged(__.IsCashback2); } }
+        }
+
+        private Decimal _Cashback2;
+        /// <summary>追加返现金额</summary>
+        [DisplayName("追加返现金额")]
+        [Description("追加返现金额")]
+        [DataObjectField(false, false, true, 6)]
+        [BindColumn(17, "Cashback2", "追加返现金额", null, "decimal(6,2)", 6, 2, false)]
+        public virtual Decimal Cashback2
+        {
+            get { return _Cashback2; }
+            set { if (OnPropertyChanging(__.Cashback2, value)) { _Cashback2 = value; OnPropertyChanged(__.Cashback2); } }
+        }
+
         private String _Remark;
         /// <summary>备注</summary>
         [DisplayName("备注")]
         [Description("备注")]
-        [DataObjectField(false, false, true, 30)]
-        [BindColumn(12, "Remark", "备注", "", "varchar(30)", 0, 0, false)]
+        [DataObjectField(false, false, true, 50)]
+        [BindColumn(18, "Remark", "备注", "", "varchar(50)", 0, 0, false)]
         public virtual String Remark
         {
             get { return _Remark; }
@@ -190,6 +262,12 @@ namespace Store
                     case __.Cost : return _Cost;
                     case __.OrderTime : return _OrderTime;
                     case __.RefreshTime : return _RefreshTime;
+                    case __.IsCashGift : return _IsCashGift;
+                    case __.CashGift : return _CashGift;
+                    case __.IsCashback1 : return _IsCashback1;
+                    case __.Cashback1 : return _Cashback1;
+                    case __.IsCashback2 : return _IsCashback2;
+                    case __.Cashback2 : return _Cashback2;
                     case __.Remark : return _Remark;
                     default: return base[name];
                 }
@@ -209,6 +287,12 @@ namespace Store
                     case __.Cost : _Cost = Convert.ToDecimal(value); break;
                     case __.OrderTime : _OrderTime = Convert.ToDateTime(value); break;
                     case __.RefreshTime : _RefreshTime = Convert.ToDateTime(value); break;
+                    case __.IsCashGift : _IsCashGift = Convert.ToSByte(value); break;
+                    case __.CashGift : _CashGift = Convert.ToDecimal(value); break;
+                    case __.IsCashback1 : _IsCashback1 = Convert.ToSByte(value); break;
+                    case __.Cashback1 : _Cashback1 = Convert.ToDecimal(value); break;
+                    case __.IsCashback2 : _IsCashback2 = Convert.ToSByte(value); break;
+                    case __.Cashback2 : _Cashback2 = Convert.ToDecimal(value); break;
                     case __.Remark : _Remark = Convert.ToString(value); break;
                     default: base[name] = value; break;
                 }
@@ -253,6 +337,24 @@ namespace Store
             ///<summary></summary>
             public static readonly Field RefreshTime = FindByName(__.RefreshTime);
 
+            ///<summary>是否礼品折现</summary>
+            public static readonly Field IsCashGift = FindByName(__.IsCashGift);
+
+            ///<summary></summary>
+            public static readonly Field CashGift = FindByName(__.CashGift);
+
+            ///<summary>是否好评返现</summary>
+            public static readonly Field IsCashback1 = FindByName(__.IsCashback1);
+
+            ///<summary>好评返现</summary>
+            public static readonly Field Cashback1 = FindByName(__.Cashback1);
+
+            ///<summary>是否追加返现</summary>
+            public static readonly Field IsCashback2 = FindByName(__.IsCashback2);
+
+            ///<summary>追加返现金额</summary>
+            public static readonly Field Cashback2 = FindByName(__.Cashback2);
+
             ///<summary>备注</summary>
             public static readonly Field Remark = FindByName(__.Remark);
 
@@ -294,6 +396,24 @@ namespace Store
 
             ///<summary></summary>
             public const String RefreshTime = "RefreshTime";
+
+            ///<summary>是否礼品折现</summary>
+            public const String IsCashGift = "IsCashGift";
+
+            ///<summary></summary>
+            public const String CashGift = "CashGift";
+
+            ///<summary>是否好评返现</summary>
+            public const String IsCashback1 = "IsCashback1";
+
+            ///<summary>好评返现</summary>
+            public const String Cashback1 = "Cashback1";
+
+            ///<summary>是否追加返现</summary>
+            public const String IsCashback2 = "IsCashback2";
+
+            ///<summary>追加返现金额</summary>
+            public const String Cashback2 = "Cashback2";
 
             ///<summary>备注</summary>
             public const String Remark = "Remark";
@@ -338,6 +458,24 @@ namespace Store
 
         /// <summary></summary>
         DateTime RefreshTime { get; set; }
+
+        /// <summary>是否礼品折现</summary>
+        SByte IsCashGift { get; set; }
+
+        /// <summary></summary>
+        Decimal CashGift { get; set; }
+
+        /// <summary>是否好评返现</summary>
+        SByte IsCashback1 { get; set; }
+
+        /// <summary>好评返现</summary>
+        Decimal Cashback1 { get; set; }
+
+        /// <summary>是否追加返现</summary>
+        SByte IsCashback2 { get; set; }
+
+        /// <summary>追加返现金额</summary>
+        Decimal Cashback2 { get; set; }
 
         /// <summary>备注</summary>
         String Remark { get; set; }

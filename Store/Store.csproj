@@ -48,6 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="C1.Win.C1Chart.4, Version=4.0.20141.24071, Culture=neutral, PublicKeyToken=a22e16972c085838, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Command.4, Version=4.0.20141.19617, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
     <Reference Include="MySql.Data">
       <HintPath>..\..\..\lib\MySql.Data.dll</HintPath>
@@ -70,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttachmentEnum.cs" />
     <Compile Include="DataLib\Biz\admin.Biz.cs" />
     <Compile Include="DataLib\Biz\attachmenttype.Biz.cs" />
     <Compile Include="DataLib\Biz\commodity.Biz.cs" />

@@ -37,6 +37,12 @@ namespace Store
             if (Dirtys[__.Profit]) Profit = Math.Round(Profit, 6);
             // 货币保留6位小数
             if (Dirtys[__.Cost]) Cost = Math.Round(Cost, 6);
+            // 货币保留6位小数
+            if (Dirtys[__.CashGift]) CashGift = Math.Round(CashGift, 6);
+            // 货币保留6位小数
+            if (Dirtys[__.Cashback1]) Cashback1 = Math.Round(Cashback1, 6);
+            // 货币保留6位小数
+            if (Dirtys[__.Cashback2]) Cashback2 = Math.Round(Cashback2, 6);
         }
 
         ///// <summary>首次连接数据库时初始化数据，仅用于实体类重载，用户不应该调用该方法</summary>
@@ -63,6 +69,12 @@ namespace Store
         //    entity.Cost = 0;
         //    entity.OrderTime = DateTime.Now;
         //    entity.RefreshTime = DateTime.Now;
+        //    entity.IsCashGift = 0;
+        //    entity.CashGift = 0;
+        //    entity.IsCashback1 = 0;
+        //    entity.Cashback1 = 0;
+        //    entity.IsCashback2 = 0;
+        //    entity.Cashback2 = 0;
         //    entity.Remark = "abc";
         //    entity.Insert();
 
